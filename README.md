@@ -391,4 +391,113 @@ It is used for two main reasons:
 
 - VXLAN works by encapsulating the original Layer 2 Ethernet frame (the inner packet) into a UDP packet (the outer packet) for transport over the IP network. This process happens at a device called a VTEP (VXLAN Tunnel Endpoint). The destination VTEP receives the UDP packet, removes the outer headers (de-encapsulation), and forwards the original Ethernet frame to the destination device as if they were on the same local Layer 2 network, regardless of the underlying Layer 3 path.
 
+**_55.What is SNAT?_**
 
+- SNAT (Source Network Address Translation) is a process where a network device (like a router or firewall) replaces the private source IP address of an outbound packet with a public IP address before forwarding it to an external network (like the internet). This allows multiple devices on a private network to share a single public IP address for outgoing connections and is fundamental for enabling private networks to access the public internet.
+
+**_56.Explain OSPF._**
+
+- OSPF (Open Shortest Path First) is a routing protocol that can be implemented on various types of routers. In general, OSPF is supported on most modern routers, including those from vendors such as Cisco, Juniper, and Huawei. The protocol is designed to work with IP-based networks, including both IPv4 and IPv6. Also, it uses a hierarchical network design, where routers are grouped into areas, with each area having its own topology map and routing table. This design helps to reduce the amount of routing information that needs to be exchanged between routers and improve network scalability.
+
+- The OSPF 4 Types of routers are:
+ - Internal Router
+ - Area Border Routers
+ - Autonomous Systems Boundary Routers
+ - Backbone Routers
+
+**_57.What is latency?_**
+
+- Latency is the time taken for information to reach its destination from the source.
+
+**_58.What is bandwidth?_**
+
+- Bandwidth is the capacity of a communication channel to measure how much data the latter can handle over a specific time period. More bandwidth would imply more traffic handling and thus more data transfer.
+
+**_59.What is throughput?_**
+
+- Throughput refers to the measurement of the real amount of data transferred over a certain period of time across any transmission channel.
+
+**_60.When performing a search query, what is more important, latency or throughput? And how to ensure that we manage global infrastructure?_**
+
+- Latency. To have good latency, a search query should be forwarded to the closest data center.
+
+**_61.When uploading a video, what is more important, latency or throughput? And how to assure that?_**
+
+- Throughput. To have good throughput, the upload stream should be routed to an underutilized link.
+
+**_62.What other considerations (except latency and throughput) are there when forwarding requests?_**
+
+- Keep caches updated (which means the request could be forwarded not to the closest data center)
+
+**_63.Explain Spine & Leaf_**
+
+- "Spine & Leaf" is a networking topology commonly used in data center environments to connect multiple switches and manage network traffic efficiently. It is also known as "spine-leaf" architecture or "leaf-spine" topology. This design provides high bandwidth, low latency, and scalability, making it ideal for modern data centers handling large volumes of data and traffic.
+Within a Spine & Leaf network there are two main tipology of switches:
+
+ - Spine Switches: Spine switches are high-performance switches arranged in a spine layer. These switches act as the core of the network and are typically interconnected with each leaf switch. Each spine switch is connected to all the leaf switches in the data center.
+
+ - Leaf Switches: Leaf switches are connected to end devices like servers, storage arrays, and other networking equipment. Each leaf switch is connected to every spine switch in the data center. This creates a non-blocking, full-mesh connectivity between leaf and spine switches, ensuring any leaf switch can communicate with any other leaf switch with maximum throughput.
+
+- The Spine & Leaf architecture has become increasingly popular in data centers due to its ability to handle the demands of modern cloud computing, virtualization, and big data applications, providing a scalable, high-performance, and reliable network infrastructure
+
+**_64.What is Network Congestion? What can cause it?_**
+
+- Network congestion occurs when there is too much data to transmit on a network and it doesn't have enough capacity to handle the demand.
+This can lead to increased latency and packet loss. The causes can be multiple, such as high network usage, large file transfers, malware, hardware issues, or network design problems.
+
+- To prevent network congestion, it's important to monitor your network usage and implement strategies to limit or manage the demand.
+
+**_65.What can you tell me about the UDP packet format? What about the TCP packet format? How is it different?_**
+
+- The UDP (User Datagram Protocol) packet format is extremely simple, consisting of a fixed 8-byte header with only four fields: Source Port, Destination Port, Length, and Checksum. This minimal overhead makes UDP fast and efficient, as it is connectionless and offers no guarantees on delivery or order.
+
+- The TCP (Transmission Control Protocol) packet format, or segment, is significantly more complex, with a header that is a minimum of 20 bytes and can be up to 60 bytes. It includes all the UDP fields plus crucial extra fields like Sequence Number, Acknowledgment Number, Control Flags (like SYN, ACK, FIN), Window Size for flow control, and a Data Offset field to specify the header length.
+
+- The difference in size and fields is because TCP is a connection-oriented protocol that must manage reliability, ordering, and flow control.
+
+**_66.What is the exponential backoff algorithm? Where is it used?_**
+
+- The Exponential Backoff algorithm is a collision resolution and error handling strategy where a system multiplicatively increases the waiting time between successive retries of a failed operation. When a network failure, collision, or server overload occurs, the device first waits a short delay, and for each subsequent failure, the delay typically doubles (e.g., 1s, 2s, 4s, 8s, etc.). This delay often includes a small randomized component (jitter) to prevent multiple devices from synchronizing and retrying at the exact same moment, which would cause another wave of collisions or overloads.
+
+- It is widely used in networking and distributed systems to improve resilience and prevent network congestion. Key applications include: Ethernet and Wi-Fi networks (using the Binary Exponential Backoff variant in CSMA/CD and CSMA/CA) to resolve packet collisions; TCP retransmission to handle lost packets; and in client-server APIs (like Google, AWS, and Stripe) to gracefully handle transient errors, rate limiting (`429` status codes), and server overloads (`5xx` status codes) without overwhelming the service.
+
+**_67.Using Hamming code, what would be the code word for the following data word 100111010001101?_**
+
+- 00110011110100011101
+
+**_68.Give examples of protocols found in the application layer_**
+
+- Hypertext Transfer Protocol (HTTP) - used for the webpages on the internet
+
+- Simple Mail Transfer Protocol (SMTP) - email transmission
+
+- Telecommunications Network - (TELNET) - terminal emulation to allow a client access to a telnet server
+
+- File Transfer Protocol (FTP) - facilitates the transfer of files between any two machines
+
+- Domain Name System (DNS) - domain name translation
+
+- Dynamic Host Configuration Protocol (DHCP) - allocates IP addresses, subnet masks, and gateways to hosts
+- Simple Network Management Protocol (SNMP) - gathers data on devices on the network
+
+**_69.Give examples of protocols found in the Network Layer_**
+
+- Internet Protocol (IP) - assists in routing packets from one machine to another
+
+- Internet Control Message Protocol (ICMP) - lets one know what is going such as error messages and debugging information
+
+**_70.What is HSTS?_**
+
+- HTTP Strict Transport Security is a web server directive that informs user agents and web browsers how to handle its connection through a response header sent at the very beginning and back to the browser. This forces connections over HTTPS encryption, disregarding any script's call to load any resource in that domain over HTTP.
+
+## Misc
+
+**_71.What is the Internet? Is it the same as the World Wide Web?_**
+
+- The internet refers to a network of networks, transferring huge amounts of data around the globe.
+
+- The World Wide Web is an application running on millions of servers, on top of the internet, accessed through what is known as the web browser
+
+**_72.What is the ISP?_**
+
+- ISP (Internet Service Provider) is the local internet company provider.
