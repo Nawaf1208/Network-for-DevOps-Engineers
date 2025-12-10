@@ -268,3 +268,127 @@
 - SDN stands for Software-Defined Networking. It is an approach to network management that emphasizes the centralization of network control, enabling administrators to manage network behavior through a software abstraction.
 
 - In a traditional network, network devices such as routers, switches, and firewalls are configured and managed individually, using specialized software or command-line interfaces. In contrast, SDN separates the network control plane from the data plane, allowing administrators to manage network behavior through a centralized software controller.
+
+**_39.What is ICMP? What is it used for?_**
+
+- ICMP stands for Internet Control Message Protocol. It is a protocol used for diagnostic and control purposes in IP networks. It is a part of the Internet Protocol suite, operating at the network layer.
+
+- ICMP messages are used for a variety of purposes, including:
+ - 1.Error reporting: ICMP messages are used to report errors that occur in the network, such as a packet that could not be delivered to its destination.
+
+ - 2.Ping: ICMP is used to send ping messages, which are used to test whether a host or network is reachable and to measure the round-trip time for packets.
+
+ - 3.Path MTU discovery: ICMP is used to discover the Maximum Transmission Unit (MTU) of a path, which is the largest packet size that can be transmitted without fragmentation.
+
+ - 4.Traceroute: ICMP is used by the traceroute utility to trace the path that packets take through the network.
+
+ - 5.Router discovery: ICMP is used to discover the routers in a network.
+
+**_40.What is NAT? How does it work?_**
+
+- NAT stands for Network Address Translation. It’s a way to map multiple local private addresses to a public one before transferring the information. Organizations that want multiple devices to employ a single IP address use NAT, as do most home routers. For example, your computer's private IP could be 192.168.1.100, but your router maps the traffic to its public IP (e.g. 1.1.1.1). Any device on the internet would see the traffic coming from your public IP (1.1.1.1) instead of your private IP (192.168.1.100).
+
+**_41.Which port number is used in each of the following protocols?:_**
+- **_SSH_** - 22
+- **_SMTP_** - 25
+- **_HTTP_** - 80
+- **_DNS_** - 53
+- **_HTTPS_** - 443
+- **_FTP_** - 21
+- **_SFTP_** - 22
+
+**_42.Which factors affect network performance?_**
+
+- Several factors can affect network performance, including:
+
+ - 1.Bandwidth: The available bandwidth of a network connection can significantly impact its performance. Networks with limited bandwidth can experience slow data transfer rates, high latency, and poor responsiveness.
+
+ - 2.Latency: Latency refers to the delay that occurs when data is transmitted from one point in a network to another. High latency can result in slow network performance, especially for real-time applications like video conferencing and online gaming.
+
+ - 3.Network congestion: When too many devices are using a network at the same time, network congestion can occur, leading to slow data transfer rates and poor network performance.
+
+ - 4.Packet loss: Packet loss occurs when packets of data are dropped during transmission. This can result in slower network speeds and lower overall network performance.
+
+ - 5.Network topology: The physical layout of a network, including the placement of switches, routers, and other network devices, can impact network performance.
+
+ - 6.Network protocol: Different network protocols have different performance characteristics, which can impact network performance. For example, TCP is a reliable protocol that can guarantee the delivery of data, but it can also result in slower performance due to the overhead required for error checking and retransmission.
+
+ - 7.Network security: Security measures such as firewalls and encryption can impact network performance, especially if they require significant processing power or introduce additional latency.
+
+ - 8.Distance: The physical distance between devices on a network can impact network performance, especially for wireless networks where signal strength and interference can affect connectivity and data transfer rates.
+
+**_43.What is APIPA?_**
+
+- APIPA is a set of IP addresses that devices are allocated when the main DHCP server is not reachable
+
+**_44.What IP range does APIPA use?_**
+
+- APIPA uses the IP range: 169.254.0.1 - 169.254.255.254.
+
+## Control Plane and Data Plane
+
+**_45.What does "control plane" refer to?_**
+
+- The control plane is a part of the network that decides how to route and forward packets to a different location.
+
+**_46.What does "data plane" refer to?_**
+
+- The data plane is a part of the network that actually forwards the data/packets.
+
+**_47.What does "management plane" refer to?_**
+
+- It refers to monitoring and management functions.
+
+**_48.To which plane (data, control, ...) does creating routing tables belong to?_**
+
+- Control Plane.
+
+**_49.Explain Spanning Tree Protocol (STP)._**
+
+- The Spanning Tree Protocol (STP) is a Layer 2 network protocol designed to prevent network loops in Ethernet networks that have redundant paths. Without STP, redundant links between switches would cause broadcast storms (frames circulating indefinitely) and MAC address table instability, leading to network failure.
+
+- STP works by executing an algorithm to elect a single Root Bridge switch, calculating the best path to it, and then logically blocking any redundant ports to create a single, loop-free logical topology (a "spanning tree"). If an active link fails, STP automatically unblocks a standby path to restore connectivity, ensuring fault tolerance.
+
+**_50.What is link aggregation? Why is it used?_**
+
+- Link aggregation is the technique of bundling multiple physical network links (like Ethernet cables) into a single logical link. This combined link is often called a Link Aggregation Group (LAG) or a port channel.
+
+It is used for two main reasons:
+
+ - 1.Increased Bandwidth (Load Balancing): It multiplies the available throughput between devices (e.g., switches or a server and a switch). Traffic is distributed (load-balanced) across all bundled physical links.
+
+ - 2.Redundancy/High Availability (Fault Tolerance): If one physical link fails, traffic is automatically and seamlessly shifted to the remaining active links in the bundle, preventing a network outage and ensuring continuous connectivity.
+
+**_51.What is Asymmetric Routing? How to deal with it?_**
+
+- Asymmetric routing occurs when the outbound packets from a source take a different network path to the destination than the inbound return packets take back to the source. While common and often a result of load balancing or multi-homed BGP networks, it becomes problematic for stateful devices like firewalls and NATs, which expect to see both directions of a session to track its state and can drop one-way return traffic.
+
+- To deal with it, the goal is often to force symmetric traffic flow through stateful devices. Solutions include using Policy-Based Routing (PBR) to explicitly control the return path, adjusting routing protocol metrics (like BGP attributes) to steer traffic, or consolidating network egress points so that the same firewall sees both the request and the response.
+
+**_52.What overlay (tunnel) protocols are you familiar with?_**
+
+- VPN Protocols (Security/Remote Access):
+  - IPsec (Internet Protocol Security)
+  - SSL/TLS VPN (Used by OpenVPN and others)
+  - L2TP (Layer 2 Tunneling Protocol)
+
+- Network Virtualization (Data Centers/Cloud):
+  - VXLAN (Virtual eXtensible Local Area Network)
+  - GRE (Generic Routing Encapsulation)
+
+- MPLS VPNs:
+  - Used in Service Provider networks for creating BGP-based VPNs
+ 
+ **_53.What is GRE? How does it work?_**
+
+ - GRE, or Generic Routing Encapsulation, is a tunneling protocol that encapsulates one network layer protocol (the payload, like IPv6 or a private IP) inside the packets of another protocol (the delivery protocol, usually IPv4). It creates a virtual point-to-point link between two endpoints over an existing network, often the public internet, allowing non-IP protocols, or IP traffic from discontinuous private networks, to be routed transparently.
+
+ - The process works by the tunnel's source router taking the original packet and adding a GRE header (which identifies the payload protocol) and then an outer IP header (the delivery header) with the tunnel endpoints' public IP addresses. This new packet is routed across the transit network to the tunnel's destination router. The destination router removes the outer IP and GRE headers (de-encapsulation) and forwards the original, inner packet to its final private destination.
+
+**_54.What is VXLAN? How does it work?_**
+
+- VXLAN (Virtual eXtensible Local Area Network) is a network virtualization technology designed to solve the scalability limits of VLANs in modern data centers and cloud environments. It creates a Layer 2 overlay network that can span a physical Layer 3 (IP) infrastructure (the underlay). Its primary benefit is providing massive network segmentation, supporting up to 16 million unique network segments using a 24-bit identifier called the VNI (VXLAN Network Identifier), far exceeding the 4,094 limit of traditional VLANs.
+
+- VXLAN works by encapsulating the original Layer 2 Ethernet frame (the inner packet) into a UDP packet (the outer packet) for transport over the IP network. This process happens at a device called a VTEP (VXLAN Tunnel Endpoint). The destination VTEP receives the UDP packet, removes the outer headers (de-encapsulation), and forwards the original Ethernet frame to the destination device as if they were on the same local Layer 2 network, regardless of the underlying Layer 3 path.
+
+
