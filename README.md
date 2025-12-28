@@ -1,5 +1,7 @@
 # Network-for-DevOps-Engineers
 
+![](Network.png)
+
 **_1.In general, what do you need in order to communicate?_**
 
 - A common language (for the two ends to understand)
