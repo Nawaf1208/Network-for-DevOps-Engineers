@@ -312,64 +312,99 @@ TCP establishes a connection between the client and the server to guarantee the 
 
 </details>
 
-**_25.What TCP/IP protocols are you familiar with?_**
+<details>
+<summary><b><i>25.What TCP/IP protocols are you familiar with?</i></b></summary>
 
-- Application Layer: HTTP, HTTPS, FTP, SMTP, POP3, IMAP, DNS, SSH, Telnet.
+$\color{green}{\text{Answer}}$
 
-- Transport Layer: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
+Application Layer: HTTP, HTTPS, FTP, SMTP, POP3, IMAP, DNS, SSH, Telnet.
 
-- Internet Layer (Network Layer): IP (Internet Protocol), ICMP, ARP, RARP.
+Transport Layer: TCP (Transmission Control Protocol), UDP (User Datagram Protocol).
 
-- Link Layer (Data Link/Physical): Ethernet, Wi-Fi.
+Internet Layer (Network Layer): IP (Internet Protocol), ICMP, ARP, RARP.
 
-**_26.Explain the "default gateway"_**
+Link Layer (Data Link/Physical): Ethernet, Wi-Fi.
 
-- A default gateway serves as an access point or IP router that a networked computer uses to send information to a computer in another network or the internet.
+</details>
 
-**_27.What is ARP? How does it work?_**
+<details>
+<summary><b><i>26.Explain the "default gateway"</i></b></summary>
 
-- ARP stands for Address Resolution Protocol. When you try to ping an IP address on your local network, say 192.168.1.1, your system has to turn the IP address 192.168.1.1 into a MAC address. This involves using ARP to resolve the address, hence its name.
+$\color{green}{\text{Answer}}$
 
-- Systems keep an ARP look-up table where they store information about what IP addresses are associated with what MAC addresses. When trying to send a packet to an IP address, the system will first consult this table to see if it already knows the MAC address. If there is a value cached, ARP is not used.
+A default gateway serves as an access point or IP router that a networked computer uses to send information to a computer in another network or the internet.
 
-**_28.What is TTL? What does it help to prevent?_**
+</details>
 
-- TTL (Time to Live) is a value in an IP (Internet Protocol) packet that determines how many hops or routers a packet can travel before it is discarded. Each time a packet is forwarded by a router, the TTL value is decreased by one. When the TTL value reaches zero, the packet is dropped, and an ICMP (Internet Control Message Protocol) message is sent back to the sender indicating that the packet has expired.
+<details>
+<summary><b><i>27.What is ARP? How does it work?</i></b></summary>
 
-- TTL is used to prevent packets from circulating indefinitely in the network, which can cause congestion and degrade network performance.
+$\color{green}{\text{Answer}}$
 
-- It also helps to prevent packets from being trapped in routing loops, where packets continuously travel between the same set of routers without ever reaching their destination.
+ARP stands for Address Resolution Protocol. When you try to ping an IP address on your local network, say 192.168.1.1, your system has to turn the IP address 192.168.1.1 into a MAC address. This involves using ARP to resolve the address, hence its name.
 
-- In addition, TTL can be used to help detect and prevent IP spoofing attacks, where an attacker attempts to impersonate another device on the network by using a false or fake IP address. By limiting the number of hops that a packet can travel, TTL can help prevent packets from being routed to destinations that are not legitimate.
+Systems keep an ARP look-up table where they store information about what IP addresses are associated with what MAC addresses. When trying to send a packet to an IP address, the system will first consult this table to see if it already knows the MAC address. If there is a value cached, ARP is not used.
 
-**_29.What is DHCP? How does it work?_**
+</details>
 
-- It stands for Dynamic Host Configuration Protocol and allocates IP addresses, subnet masks, and gateways to hosts. This is how it works:
+<details>
+<summary><b><i>28.What is TTL? What does it help to prevent?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+TTL (Time to Live) is a value in an IP (Internet Protocol) packet that determines how many hops or routers a packet can travel before it is discarded. Each time a packet is forwarded by a router, the TTL value is decreased by one. When the TTL value reaches zero, the packet is dropped, and an ICMP (Internet Control Message Protocol) message is sent back to the sender indicating that the packet has expired.
+
+TTL is used to prevent packets from circulating indefinitely in the network, which can cause congestion and degrade network performance.
+
+It also helps to prevent packets from being trapped in routing loops, where packets continuously travel between the same set of routers without ever reaching their destination.
+
+In addition, TTL can be used to help detect and prevent IP spoofing attacks, where an attacker attempts to impersonate another device on the network by using a false or fake IP address. By limiting the number of hops that a packet can travel, TTL can help prevent packets from being routed to destinations that are not legitimate.
+
+</details>
+
+<details>
+<summary><b><i>29.What is DHCP? How does it work?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+It stands for Dynamic Host Configuration Protocol and allocates IP addresses, subnet masks, and gateways to hosts. This is how it works:
  - A host upon entering a network broadcasts a message in search of a DHCP server (DHCP DISCOVER)
  - An offer message is sent back by the DHCP server as a packet containing lease time, subnet mask, IP addresses, etc (DHCP OFFER)
  - Depending on which offer is accepted, the client sends back a reply broadcast letting all DHCP servers know (DHCP REQUEST)
  - The server sends an acknowledgment (DHCP ACK)
 
-**_30.Can you have two DHCP servers on the same network? How does it work?_**
+</details>
 
-- It is possible to have two DHCP servers on the same network, however, it is not recommended, and it is important to configure them carefully to prevent conflicts and configuration problems.
+<details>
+<summary><b><i>30.Can you have two DHCP servers on the same network? How does it work?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+It is possible to have two DHCP servers on the same network, however, it is not recommended, and it is important to configure them carefully to prevent conflicts and configuration problems.
  - When two DHCP servers are configured on the same network, there is a risk that both servers will assign IP addresses and other network configuration settings to the same device, which can cause conflicts and connectivity issues. Additionally, if the DHCP servers are configured with different network settings or options, devices on the network may receive conflicting or inconsistent configuration settings.
  
- - However, in some cases, it may be necessary to have two DHCP servers on the same network, such as in large networks where one DHCP server may not be able to handle all the requests. In such cases, DHCP servers can be configured to serve different IP address ranges or different subnets, so they do not interfere with each other.
+However, in some cases, it may be necessary to have two DHCP servers on the same network, such as in large networks where one DHCP server may not be able to handle all the requests. In such cases, DHCP servers can be configured to serve different IP address ranges or different subnets, so they do not interfere with each other.
 
-**_31.What is SSL tunneling? How does it work?_**
+</details>
 
-- SSL (Secure Sockets Layer) tunneling is a technique used to establish a secure, encrypted connection between two endpoints over an insecure network, such as the Internet. The SSL tunnel is created by encapsulating the traffic within an SSL connection, which provides confidentiality, integrity, and authentication.
+<details>
+<summary><b><i>31.What is SSL tunneling? How does it work?</i></b></summary>
 
-- Here's how SSL tunneling works:
+$\color{green}{\text{Answer}}$
 
- - 1.A client initiates an SSL connection to a server, which involves a handshake process to establish the SSL session.
+SSL (Secure Sockets Layer) tunneling is a technique used to establish a secure, encrypted connection between two endpoints over an insecure network, such as the Internet. The SSL tunnel is created by encapsulating the traffic within an SSL connection, which provides confidentiality, integrity, and authentication.
 
- - 2.Once the SSL session is established, the client and server negotiate encryption parameters, such as the encryption algorithm and key length, then exchange digital certificates to authenticate each other.
+Here's how SSL tunneling works:
 
- - 3.The client then sends traffic through the SSL tunnel to the server, which decrypts the traffic and forwards it to its destination.
+1.A client initiates an SSL connection to a server, which involves a handshake process to establish the SSL session.
 
- - 4.The server sends traffic back through the SSL tunnel to the client, which decrypts the traffic and forwards it to the application.
+2.Once the SSL session is established, the client and server negotiate encryption parameters, such as the encryption algorithm and key length, then exchange digital certificates to authenticate each other.
+
+3.The client then sends traffic through the SSL tunnel to the server, which decrypts the traffic and forwards it to its destination.
+
+4.The server sends traffic back through the SSL tunnel to the client, which decrypts the traffic and forwards it to the application.
+
+</details>
 
 **_32.What is a socket? Where can you see the list of sockets in your system?_**
 
