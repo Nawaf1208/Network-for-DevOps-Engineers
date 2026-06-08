@@ -148,102 +148,169 @@ Multicast: Sending a message to a group of subscribers. It can be one-to-many or
 
 </details>
 
-**_13.What is CSMA/CD? Is it used in modern ethernet networks?_**
+<details>
+<summary><b><i>13.What is CSMA/CD? Is it used in modern ethernet networks?</i></b></summary>
 
-- CSMA/CD stands for Carrier Sense Multiple Access / Collision Detection. Its primary focus is to manage access to a shared medium/bus where only one host can transmit at a given point in time.
+$\color{green}{\text{Answer}}$
 
-- CSMA/CD algorithm:
+CSMA/CD stands for Carrier Sense Multiple Access / Collision Detection. Its primary focus is to manage access to a shared medium/bus where only one host can transmit at a given point in time.
 
-- 1.Before sending a frame, it checks whether another host is already transmitting a frame.
-- 2.If no one is transmitting, it starts transmitting the frame.
-- 3.If two hosts transmit at the same time, we have a collision.
-- 4.Both hosts stop sending the frame and they send everyone a 'jam signal' notifying everyone that a collision occurred
-- 5.They are waiting for a random time before sending it again
-- 6.Once each host waited for a random time, they try to send the frame again and so the cycle starts again
+CSMA/CD algorithm:
 
-**_14.Describe the following network devices and the difference between them:_**
-**_router_**
-**_switch_**
-**_hub_**
+1.Before sending a frame, it checks whether another host is already transmitting a frame.
 
-- A router, switch, and hub are all network devices used to connect devices in a local area network (LAN). However, each device operates differently and has its specific use cases. Here is a brief description of each device and the differences between them:
+2.If no one is transmitting, it starts transmitting the frame.
 
-- 1.Router: a network device that connects multiple network segments together. It operates at the network layer (Layer 3) of the OSI model and uses routing protocols to direct data between networks. Routers use IP addresses to identify devices and route data packets to the correct destination.
+3.If two hosts transmit at the same time, we have a collision.
 
-- 2.Switch: a network device that connects multiple devices on a LAN. It operates at the data link layer (Layer 2) of the OSI model and uses MAC addresses to identify devices and direct data packets to the correct destination. Switches allow devices on the same network to communicate with each other more efficiently and can prevent data collisions that can occur when multiple devices send data simultaneously.
+4.Both hosts stop sending the frame and they send everyone a 'jam signal' notifying everyone that a collision occurred
 
-- 3.Hub: a network device that connects multiple devices through a single cable and is used to connect multiple devices without segmenting a network. However, unlike a switch, it operates at the physical layer (Layer 1) of the OSI model and simply broadcasts data packets to all devices connected to it, regardless of whether the device is the intended recipient or not. This means that data collisions can occur, and the network's efficiency can suffer as a result. Hubs are generally not used in modern network setups, as switches are more efficient and provide better network performance.
+5.They are waiting for a random time before sending it again
 
-**_15.What is a "Collision Domain"?_**
+6.Once each host waited for a random time, they try to send the frame again and so the cycle starts again
 
-- A collision domain is a network segment in which devices can potentially interfere with each other by attempting to transmit data at the same time. When two devices transmit data at the same time, it can cause a collision, resulting in lost or corrupted data. In a collision domain, all devices share the same bandwidth, and any device can potentially interfere with the transmission of data by other devices.
+</details>
 
-**_16.What is a "Broadcast Domain"?_**
+<details>
+<summary><b><i>14.Describe the following network devices and the difference between them:
+- router
+- switch
+- hub
+</i></b></summary>
 
-- A broadcast domain is a network segment in which all devices can communicate with each other by sending broadcast messages. A broadcast message is a message that is sent to all devices in a network rather than a specific device. In a broadcast domain, all devices can receive and process broadcast messages, regardless of whether the message was intended for them or not.
+$\color{green}{\text{Answer}}$
 
-**_17.Three computers connected to a switch. How many collision domains are there? How many broadcast domains?_**
+A router, switch, and hub are all network devices used to connect devices in a local area network (LAN). However, each device operates differently and has its specific use cases. Here is a brief description of each device and the differences between them:
 
-- Three collision domains and one broadcast domain
+1.Router: a network device that connects multiple network segments together. It operates at the network layer (Layer 3) of the OSI model and uses routing protocols to direct data between networks. Routers use IP addresses to identify devices and route data packets to the correct destination.
 
-**_18.How does a router work?_**
+2.Switch: a network device that connects multiple devices on a LAN. It operates at the data link layer (Layer 2) of the OSI model and uses MAC addresses to identify devices and direct data packets to the correct destination. Switches allow devices on the same network to communicate with each other more efficiently and can prevent data collisions that can occur when multiple devices send data simultaneously.
 
-- A router is a physical or virtual appliance that passes information between two or more packet-switched computer networks. A router inspects a given data packet's destination Internet Protocol address (IP address), calculates the best way for it to reach its destination, and then forwards it accordingly.
+3.Hub: a network device that connects multiple devices through a single cable and is used to connect multiple devices without segmenting a network. However, unlike a switch, it operates at the physical layer (Layer 1) of the OSI model and simply broadcasts data packets to all devices connected to it, regardless of whether the device is the intended recipient or not. This means that data collisions can occur, and the network's efficiency can suffer as a result. Hubs are generally not used in modern network setups, as switches are more efficient and provide better network performance.
 
-**_19.What is NAT?_**
+</details>
 
-- Network Address Translation (NAT) is a process in which one or more local IP addresses are translated into one or more Global IP address and vice versa in order to provide Internet access to the local hosts.
+<details>
+<summary><b><i>15.What is a "Collision Domain"?</i></b></summary>
 
-**_20.What is a proxy? How does it work? What do we need it for?_**
+$\color{green}{\text{Answer}}$
 
-- A proxy server acts as a gateway between you and the internet. It’s an intermediary server separating end users from the websites they browse.
+A collision domain is a network segment in which devices can potentially interfere with each other by attempting to transmit data at the same time. When two devices transmit data at the same time, it can cause a collision, resulting in lost or corrupted data. In a collision domain, all devices share the same bandwidth, and any device can potentially interfere with the transmission of data by other devices.
 
-- If you’re using a proxy server, internet traffic flows through the proxy server on its way to the address you requested. The request then comes back through that same proxy server (there are exceptions to this rule), and then the proxy server forwards the data received from the website to you.
+</details>
 
-- Proxy servers provide varying levels of functionality, security, and privacy depending on your use case, needs, or company policy.
+<details>
+<summary><b><i>16.What is a "Broadcast Domain"?</i></b></summary>
 
-**_21.What is TCP? How does it work? What is the 3-way handshake?_**
+$\color{green}{\text{Answer}}$
 
-- TCP 3-way handshake or three-way handshake is a process that is used in a TCP/IP network to make a connection between server and client.
+A broadcast domain is a network segment in which all devices can communicate with each other by sending broadcast messages. A broadcast message is a message that is sent to all devices in a network rather than a specific device. In a broadcast domain, all devices can receive and process broadcast messages, regardless of whether the message was intended for them or not.
 
-- A three-way handshake is primarily used to create a TCP socket connection. It works when:
- - 1.A client node sends an SYN data packet over an IP network to a server on the same or an external network. The objective of this packet is to ask/infer if the server is open for new connections.
+</details>
 
- - 2.The target server must have open ports that can accept and initiate new connections. When the server receives the SYN packet from the client node, it responds and returns a confirmation receipt – the ACK packet or SYN/ACK packet.
+<details>
+<summary><b><i>17.Three computers connected to a switch. How many collision domains are there? How many broadcast domains?</i></b></summary>
 
- - 3.The client node receives the SYN/ACK from the server and responds with an ACK packet.
+$\color{green}{\text{Answer}}$
 
-**_22.What is round-trip delay or round-trip time?_**
+Three collision domains and one broadcast domain
 
-- The length of time it takes for a signal to be sent plus the length of time it takes for an acknowledgment of that signal to be received"
+</details>
 
-**_23.How does an SSL handshake work?_**
+<details>
+<summary><b><i>18.How does a router work?</i></b></summary>
 
-- SSL handshake is a process that establishes a secure connection between a client and a server.
+$\color{green}{\text{Answer}}$
 
- - 1.The client sends a Client Hello message to the server, which includes the client's version of the SSL/TLS protocol, a list of the cryptographic algorithms supported by the client, and a random value.
+A router is a physical or virtual appliance that passes information between two or more packet-switched computer networks. A router inspects a given data packet's destination Internet Protocol address (IP address), calculates the best way for it to reach its destination, and then forwards it accordingly.
 
- - 2.The server responds with a Server Hello message, which includes the server's version of the SSL/TLS protocol, a random value, and a session ID.
+</details>
 
- - 3.The server sends a Certificate message, which contains the server's certificate.
+<details>
+<summary><b><i>19.What is NAT?</i></b></summary>
 
- - 4.The server sends a Server Hello Done message, which indicates that the server is done sending messages for the Server Hello phase.
+$\color{green}{\text{Answer}}$
 
- - 5.The client sends a Client Key Exchange message, which contains the client's public key.
+Network Address Translation (NAT) is a process in which one or more local IP addresses are translated into one or more Global IP address and vice versa in order to provide Internet access to the local hosts.
+
+</details>
+
+<details>
+<summary><b><i>20.What is a proxy? How does it work? What do we need it for?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+A proxy server acts as a gateway between you and the internet. It’s an intermediary server separating end users from the websites they browse.
+
+If you’re using a proxy server, internet traffic flows through the proxy server on its way to the address you requested. The request then comes back through that same proxy server (there are exceptions to this rule), and then the proxy server forwards the data received from the website to you.
+
+Proxy servers provide varying levels of functionality, security, and privacy depending on your use case, needs, or company policy.
+
+</details>
+
+<details>
+<summary><b><i>21.What is TCP? How does it work? What is the 3-way handshake?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+TCP 3-way handshake or three-way handshake is a process that is used in a TCP/IP network to make a connection between server and client.
+
+A three-way handshake is primarily used to create a TCP socket connection. It works when:
+
+1.A client node sends an SYN data packet over an IP network to a server on the same or an external network. The objective of this packet is to ask/infer if the server is open for new connections.
+
+2.The target server must have open ports that can accept and initiate new connections. When the server receives the SYN packet from the client node, it responds and returns a confirmation receipt – the ACK packet or SYN/ACK packet.
+
+3.The client node receives the SYN/ACK from the server and responds with an ACK packet.
+
+</details>
+
+<details>
+<summary><b><i>22.What is round-trip delay or round-trip time?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+The length of time it takes for a signal to be sent plus the length of time it takes for an acknowledgment of that signal to be received"
+
+</details>
+
+<details>
+<summary><b><i>23.How does an SSL handshake work?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+SSL handshake is a process that establishes a secure connection between a client and a server.
+
+1.The client sends a Client Hello message to the server, which includes the client's version of the SSL/TLS protocol, a list of the cryptographic algorithms supported by the client, and a random value.
+
+2.The server responds with a Server Hello message, which includes the server's version of the SSL/TLS protocol, a random value, and a session ID.
+
+3.The server sends a Certificate message, which contains the server's certificate.
+
+4.The server sends a Server Hello Done message, which indicates that the server is done sending messages for the Server Hello phase.
+
+5.The client sends a Client Key Exchange message, which contains the client's public key.
   
- - 6.The client sends a Change Cipher Spec message, which notifies the server that the client is about to send a message encrypted with the new cipher spec.
+6.The client sends a Change Cipher Spec message, which notifies the server that the client is about to send a message encrypted with the new cipher spec.
 
- - 7.The client sends an Encrypted Handshake Message, which contains the pre-master secret encrypted with the server's public key.
+7.The client sends an Encrypted Handshake Message, which contains the pre-master secret encrypted with the server's public key.
 
- - 8.The server sends a Change Cipher Spec message, which notifies the client that the server is about to send a message encrypted with the new cipher spec.
+8.The server sends a Change Cipher Spec message, which notifies the client that the server is about to send a message encrypted with the new cipher spec.
 
- - 9.The server sends an Encrypted Handshake Message, which contains the pre-master secret encrypted with the client's public key.
+9.The server sends an Encrypted Handshake Message, which contains the pre-master secret encrypted with the client's public key.
 
- - 10.The client and server can now exchange application data.
+10.The client and server can now exchange application data.
 
-**_24.What is the difference between TCP and UDP?_**
+</details>
 
-- TCP establishes a connection between the client and the server to guarantee the order of the packages, on the other hand, UDP does not establish a connection between the client and server and doesn't handle package orders. This makes UDP more lightweight than TCP and a perfect candidate for services like streaming.
+<details>
+<summary><b><i>24.What is the difference between TCP and UDP?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+TCP establishes a connection between the client and the server to guarantee the order of the packages, on the other hand, UDP does not establish a connection between the client and server and doesn't handle package orders. This makes UDP more lightweight than TCP and a perfect candidate for services like streaming.
+
+</details>
 
 **_25.What TCP/IP protocols are you familiar with?_**
 
