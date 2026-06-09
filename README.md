@@ -538,33 +538,48 @@ SFTP - 22
 
 </details>
 
-**_42.Which factors affect network performance?_**
+<details>
+<summary><b><i>42.Which factors affect network performance?</i></b></summary>
 
-- Several factors can affect network performance, including:
+$\color{green}{\text{Answer}}$
 
- - 1.Bandwidth: The available bandwidth of a network connection can significantly impact its performance. Networks with limited bandwidth can experience slow data transfer rates, high latency, and poor responsiveness.
+Several factors can affect network performance, including:
 
- - 2.Latency: Latency refers to the delay that occurs when data is transmitted from one point in a network to another. High latency can result in slow network performance, especially for real-time applications like video conferencing and online gaming.
+1.Bandwidth: The available bandwidth of a network connection can significantly impact its performance. Networks with limited bandwidth can experience slow data transfer rates, high latency, and poor responsiveness.
 
- - 3.Network congestion: When too many devices are using a network at the same time, network congestion can occur, leading to slow data transfer rates and poor network performance.
+2.Latency: Latency refers to the delay that occurs when data is transmitted from one point in a network to another. High latency can result in slow network performance, especially for real-time applications like video conferencing and online gaming.
 
- - 4.Packet loss: Packet loss occurs when packets of data are dropped during transmission. This can result in slower network speeds and lower overall network performance.
+3.Network congestion: When too many devices are using a network at the same time, network congestion can occur, leading to slow data transfer rates and poor network performance.
 
- - 5.Network topology: The physical layout of a network, including the placement of switches, routers, and other network devices, can impact network performance.
+4.Packet loss: Packet loss occurs when packets of data are dropped during transmission. This can result in slower network speeds and lower overall network performance.
 
- - 6.Network protocol: Different network protocols have different performance characteristics, which can impact network performance. For example, TCP is a reliable protocol that can guarantee the delivery of data, but it can also result in slower performance due to the overhead required for error checking and retransmission.
+5.Network topology: The physical layout of a network, including the placement of switches, routers, and other network devices, can impact network performance.
 
- - 7.Network security: Security measures such as firewalls and encryption can impact network performance, especially if they require significant processing power or introduce additional latency.
+6.Network protocol: Different network protocols have different performance characteristics, which can impact network performance. For example, TCP is a reliable protocol that can guarantee the delivery of data, but it can also result in slower performance due to the overhead required for error checking and retransmission.
 
- - 8.Distance: The physical distance between devices on a network can impact network performance, especially for wireless networks where signal strength and interference can affect connectivity and data transfer rates.
+7.Network security: Security measures such as firewalls and encryption can impact network performance, especially if they require significant processing power or introduce additional latency.
 
-**_43.What is APIPA?_**
+8.Distance: The physical distance between devices on a network can impact network performance, especially for wireless networks where signal strength and interference can affect connectivity and data transfer rates.
 
-- APIPA is a set of IP addresses that devices are allocated when the main DHCP server is not reachable
+</details>
 
-**_44.What IP range does APIPA use?_**
+<details>
+<summary><b><i>43.What is APIPA?</i></b></summary>
 
-- APIPA uses the IP range: 169.254.0.1 - 169.254.255.254.
+$\color{green}{\text{Answer}}$
+
+APIPA is a set of IP addresses that devices are allocated when the main DHCP server is not reachable
+
+</details>
+
+<details>
+<summary><b><i>44.What IP range does APIPA use?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+APIPA uses the IP range: `169.254.0.1 - 169.254.255.254`.
+
+</details>
 
 ## Control Plane and Data Plane
 
