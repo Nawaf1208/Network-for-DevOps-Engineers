@@ -406,79 +406,137 @@ Here's how SSL tunneling works:
 
 </details>
 
-**_32.What is a socket? Where can you see the list of sockets in your system?_**
+<details>
+<summary><b><i>32.What is a socket? Where can you see the list of sockets in your system?</i></b></summary>
 
-- A socket is a software endpoint that enables two-way communication between processes over a network. Sockets provide a standardized interface for network communication, allowing applications to send and receive data across a network. To view the list of open sockets on a Linux system: `netstat -an`
+$\color{green}{\text{Answer}}$
 
-- This command displays a list of all open sockets, along with their protocol, local address, foreign address, and state.
+A socket is a software endpoint that enables two-way communication between processes over a network. Sockets provide a standardized interface for network communication, allowing applications to send and receive data across a network. To view the list of open sockets on a Linux system: `netstat -an`
 
-**_33.What is IPv6? Why should we consider using it if we have IPv4?_**
+This command displays a list of all open sockets, along with their protocol, local address, foreign address, and state.
 
-- IPv6 (Internet Protocol version 6) is the latest version of the Internet Protocol (IP), which is used to identify and communicate with devices on a network. IPv6 addresses are 128-bit addresses and are expressed in hexadecimal notation, such as 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
+</details>
 
-- There are several reasons why we should consider using IPv6 over IPv4:
+<details>
+<summary><b><i>33.What is IPv6? Why should we consider using it if we have IPv4?</i></b></summary>
 
- - 1.Address space: IPv4 has a limited address space, which has been exhausted in many parts of the world. IPv6 provides a much larger address space, allowing for trillions of unique IP addresses.
+$\color{green}{\text{Answer}}$
 
- - 2.Security: IPv6 includes built-in support for IPsec, which provides end-to-end encryption and authentication for network traffic.
+IPv6 (Internet Protocol version 6) is the latest version of the Internet Protocol (IP), which is used to identify and communicate with devices on a network. IPv6 addresses are 128-bit addresses and are expressed in hexadecimal notation, such as 2001:0db8:85a3:0000:0000:8a2e:0370:7334.
 
- - 3.Performance: IPv6 includes features that can help to improve network performance, such as multicast routing, which allows a single packet to be sent to multiple destinations simultaneously.
+There are several reasons why we should consider using IPv6 over IPv4:
 
- - 4.Simplified network configuration: IPv6 includes features that can simplify network configuration, such as stateless autoconfiguration, which allows devices to automatically configure their own IPv6 addresses without the need for a DHCP server.
+1.Address space: IPv4 has a limited address space, which has been exhausted in many parts of the world. IPv6 provides a much larger address space, allowing for trillions of unique IP addresses.
 
- - 5.Better mobility support: IPv6 includes features that can improve mobility support, such as Mobile IPv6, which allows devices to maintain their IPv6 addresses as they move between different networks.
+2.Security: IPv6 includes built-in support for IPsec, which provides end-to-end encryption and authentication for network traffic.
 
-**_34.What is VLAN?_**
+3.Performance: IPv6 includes features that can help to improve network performance, such as multicast routing, which allows a single packet to be sent to multiple destinations simultaneously.
 
-- A VLAN (Virtual Local Area Network) is a logical network that groups together a set of devices on a physical network, regardless of their physical location. VLANs are created by configuring network switches to assign a specific VLAN ID to frames sent by devices connected to a specific port or group of ports on the switch.
+4.Simplified network configuration: IPv6 includes features that can simplify network configuration, such as stateless autoconfiguration, which allows devices to automatically configure their own IPv6 addresses without the need for a DHCP server.
 
-**_35.What is MTU?_**
+5.Better mobility support: IPv6 includes features that can improve mobility support, such as Mobile IPv6, which allows devices to maintain their IPv6 addresses as they move between different networks.
 
-- MTU stands for Maximum Transmission Unit. It's the size of the largest PDU (protocol Data Unit) that can be sent in a single transaction.
+</details>
 
-**_36.What happens if you send a packet that is bigger than the MTU?_**
+<details>
+<summary><b><i>34.What is VLAN?</i></b></summary>
 
-- With the IPv4 protocol, the router can fragment the PDU and then send all the fragmented PDU through the transaction.
+$\color{green}{\text{Answer}}$
 
-- With IPv6 protocol, it issues an error to the user's computer.
+A VLAN (Virtual Local Area Network) is a logical network that groups together a set of devices on a physical network, regardless of their physical location. VLANs are created by configuring network switches to assign a specific VLAN ID to frames sent by devices connected to a specific port or group of ports on the switch.
 
-**_37.True or False? Ping is using UDP because it doesn't care about reliable connection_**
+</details>
 
-- False. Ping is actually using ICMP (Internet Control Message Protocol) which is a network protocol used to send diagnostic messages and control messages related to network communication.
+<details>
+<summary><b><i>35.What is MTU?</i></b></summary>
 
-**_38.What is SDN?_**
+$\color{green}{\text{Answer}}$
 
-- SDN stands for Software-Defined Networking. It is an approach to network management that emphasizes the centralization of network control, enabling administrators to manage network behavior through a software abstraction.
+MTU stands for Maximum Transmission Unit. It's the size of the largest PDU (protocol Data Unit) that can be sent in a single transaction.
 
-- In a traditional network, network devices such as routers, switches, and firewalls are configured and managed individually, using specialized software or command-line interfaces. In contrast, SDN separates the network control plane from the data plane, allowing administrators to manage network behavior through a centralized software controller.
+</details>
 
-**_39.What is ICMP? What is it used for?_**
+<details>
+<summary><b><i>36.What happens if you send a packet that is bigger than the MTU?</i></b></summary>
 
-- ICMP stands for Internet Control Message Protocol. It is a protocol used for diagnostic and control purposes in IP networks. It is a part of the Internet Protocol suite, operating at the network layer.
+$\color{green}{\text{Answer}}$
 
-- ICMP messages are used for a variety of purposes, including:
- - 1.Error reporting: ICMP messages are used to report errors that occur in the network, such as a packet that could not be delivered to its destination.
+With the IPv4 protocol, the router can fragment the PDU and then send all the fragmented PDU through the transaction.
 
- - 2.Ping: ICMP is used to send ping messages, which are used to test whether a host or network is reachable and to measure the round-trip time for packets.
+With IPv6 protocol, it issues an error to the user's computer.
 
- - 3.Path MTU discovery: ICMP is used to discover the Maximum Transmission Unit (MTU) of a path, which is the largest packet size that can be transmitted without fragmentation.
+</details>
 
- - 4.Traceroute: ICMP is used by the traceroute utility to trace the path that packets take through the network.
+<details>
+<summary><b><i>37.True or False? Ping is using UDP because it doesn't care about reliable connection</i></b></summary>
 
- - 5.Router discovery: ICMP is used to discover the routers in a network.
+$\color{green}{\text{Answer}}$
 
-**_40.What is NAT? How does it work?_**
+False. Ping is actually using ICMP (Internet Control Message Protocol) which is a network protocol used to send diagnostic messages and control messages related to network communication.
 
-- NAT stands for Network Address Translation. It’s a way to map multiple local private addresses to a public one before transferring the information. Organizations that want multiple devices to employ a single IP address use NAT, as do most home routers. For example, your computer's private IP could be 192.168.1.100, but your router maps the traffic to its public IP (e.g. 1.1.1.1). Any device on the internet would see the traffic coming from your public IP (1.1.1.1) instead of your private IP (192.168.1.100).
+</details>
 
-**_41.Which port number is used in each of the following protocols?:_**
-- **_SSH_** - 22
-- **_SMTP_** - 25
-- **_HTTP_** - 80
-- **_DNS_** - 53
-- **_HTTPS_** - 443
-- **_FTP_** - 21
-- **_SFTP_** - 22
+<details>
+<summary><b><i>38.What is SDN?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+SDN stands for Software-Defined Networking. It is an approach to network management that emphasizes the centralization of network control, enabling administrators to manage network behavior through a software abstraction.
+
+In a traditional network, network devices such as routers, switches, and firewalls are configured and managed individually, using specialized software or command-line interfaces. In contrast, SDN separates the network control plane from the data plane, allowing administrators to manage network behavior through a centralized software controller.
+
+</details>
+
+<details>
+<summary><b><i>39.What is ICMP? What is it used for?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+ICMP stands for Internet Control Message Protocol. It is a protocol used for diagnostic and control purposes in IP networks. It is a part of the Internet Protocol suite, operating at the network layer.
+
+ICMP messages are used for a variety of purposes, including:
+
+1.Error reporting: ICMP messages are used to report errors that occur in the network, such as a packet that could not be delivered to its destination.
+
+2.Ping: ICMP is used to send ping messages, which are used to test whether a host or network is reachable and to measure the round-trip time for packets.
+
+3.Path MTU discovery: ICMP is used to discover the Maximum Transmission Unit (MTU) of a path, which is the largest packet size that can be transmitted without fragmentation.
+
+4.Traceroute: ICMP is used by the traceroute utility to trace the path that packets take through the network.
+
+5.Router discovery: ICMP is used to discover the routers in a network.
+
+</details>
+
+<details>
+<summary><b><i>40.What is NAT? How does it work?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+NAT stands for Network Address Translation. It’s a way to map multiple local private addresses to a public one before transferring the information. Organizations that want multiple devices to employ a single IP address use NAT, as do most home routers. For example, your computer's private IP could be 192.168.1.100, but your router maps the traffic to its public IP (e.g. 1.1.1.1). Any device on the internet would see the traffic coming from your public IP (1.1.1.1) instead of your private IP (192.168.1.100).
+
+</details>
+
+<details>
+<summary><b><i>41.Which port number is used in each of the following protocols?:</i></b></summary>
+ 
+$\color{green}{\text{Answer}}$
+
+SSH - 22
+
+SMTP - 25
+
+HTTP - 80
+
+DNS - 53
+
+HTTPS - 443
+
+FTP - 21
+
+SFTP - 22
+
+</details>
 
 **_42.Which factors affect network performance?_**
 
