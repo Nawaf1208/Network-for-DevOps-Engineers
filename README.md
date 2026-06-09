@@ -583,177 +583,318 @@ APIPA uses the IP range: `169.254.0.1 - 169.254.255.254`.
 
 ## Control Plane and Data Plane
 
-**_45.What does "control plane" refer to?_**
+<details>
+<summary><b><i>45.What does "control plane" refer to?</i></b></summary>
 
-- The control plane is a part of the network that decides how to route and forward packets to a different location.
+$\color{green}{\text{Answer}}$
 
-**_46.What does "data plane" refer to?_**
+The control plane is a part of the network that decides how to route and forward packets to a different location.
 
-- The data plane is a part of the network that actually forwards the data/packets.
+</details>
 
-**_47.What does "management plane" refer to?_**
+<details>
+<summary><b><i>46.What does "data plane" refer to?</i></b></summary>
 
-- It refers to monitoring and management functions.
+$\color{green}{\text{Answer}}$
 
-**_48.To which plane (data, control, ...) does creating routing tables belong to?_**
+The data plane is a part of the network that actually forwards the data/packets.
 
-- Control Plane.
+</details>
 
-**_49.Explain Spanning Tree Protocol (STP)._**
+<details>
+<summary><b><i>47.What does "management plane" refer to?</i></b></summary>
 
-- The Spanning Tree Protocol (STP) is a Layer 2 network protocol designed to prevent network loops in Ethernet networks that have redundant paths. Without STP, redundant links between switches would cause broadcast storms (frames circulating indefinitely) and MAC address table instability, leading to network failure.
+$\color{green}{\text{Answer}}$
 
-- STP works by executing an algorithm to elect a single Root Bridge switch, calculating the best path to it, and then logically blocking any redundant ports to create a single, loop-free logical topology (a "spanning tree"). If an active link fails, STP automatically unblocks a standby path to restore connectivity, ensuring fault tolerance.
+It refers to monitoring and management functions.
 
-**_50.What is link aggregation? Why is it used?_**
+</details>
 
-- Link aggregation is the technique of bundling multiple physical network links (like Ethernet cables) into a single logical link. This combined link is often called a Link Aggregation Group (LAG) or a port channel.
+<details>
+<summary><b><i>48.To which plane (data, control, ...) does creating routing tables belong to?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Control Plane.
+
+</details>
+
+<details>
+<summary><b><i>49.Explain Spanning Tree Protocol (STP).</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+The Spanning Tree Protocol (STP) is a Layer 2 network protocol designed to prevent network loops in Ethernet networks that have redundant paths. Without STP, redundant links between switches would cause broadcast storms (frames circulating indefinitely) and MAC address table instability, leading to network failure.
+
+STP works by executing an algorithm to elect a single Root Bridge switch, calculating the best path to it, and then logically blocking any redundant ports to create a single, loop-free logical topology (a "spanning tree"). If an active link fails, STP automatically unblocks a standby path to restore connectivity, ensuring fault tolerance.
+
+</details>
+
+<details>
+<summary><b><i>50.What is link aggregation? Why is it used?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Link aggregation is the technique of bundling multiple physical network links (like Ethernet cables) into a single logical link. This combined link is often called a Link Aggregation Group (LAG) or a port channel.
 
 It is used for two main reasons:
 
- - 1.Increased Bandwidth (Load Balancing): It multiplies the available throughput between devices (e.g., switches or a server and a switch). Traffic is distributed (load-balanced) across all bundled physical links.
+1.Increased Bandwidth (Load Balancing): It multiplies the available throughput between devices (e.g., switches or a server and a switch). Traffic is distributed (load-balanced) across all bundled physical links.
 
- - 2.Redundancy/High Availability (Fault Tolerance): If one physical link fails, traffic is automatically and seamlessly shifted to the remaining active links in the bundle, preventing a network outage and ensuring continuous connectivity.
+2.Redundancy/High Availability (Fault Tolerance): If one physical link fails, traffic is automatically and seamlessly shifted to the remaining active links in the bundle, preventing a network outage and ensuring continuous connectivity.
 
-**_51.What is Asymmetric Routing? How to deal with it?_**
+</details>
 
-- Asymmetric routing occurs when the outbound packets from a source take a different network path to the destination than the inbound return packets take back to the source. While common and often a result of load balancing or multi-homed BGP networks, it becomes problematic for stateful devices like firewalls and NATs, which expect to see both directions of a session to track its state and can drop one-way return traffic.
+<details>
+<summary><b><i>51.What is Asymmetric Routing? How to deal with it?</i></b></summary>
 
-- To deal with it, the goal is often to force symmetric traffic flow through stateful devices. Solutions include using Policy-Based Routing (PBR) to explicitly control the return path, adjusting routing protocol metrics (like BGP attributes) to steer traffic, or consolidating network egress points so that the same firewall sees both the request and the response.
+$\color{green}{\text{Answer}}$
 
-**_52.What overlay (tunnel) protocols are you familiar with?_**
+Asymmetric routing occurs when the outbound packets from a source take a different network path to the destination than the inbound return packets take back to the source. While common and often a result of load balancing or multi-homed BGP networks, it becomes problematic for stateful devices like firewalls and NATs, which expect to see both directions of a session to track its state and can drop one-way return traffic.
 
-- VPN Protocols (Security/Remote Access):
+To deal with it, the goal is often to force symmetric traffic flow through stateful devices. Solutions include using Policy-Based Routing (PBR) to explicitly control the return path, adjusting routing protocol metrics (like BGP attributes) to steer traffic, or consolidating network egress points so that the same firewall sees both the request and the response.
+
+</details>
+
+<details>
+<summary><b><i>52.What overlay (tunnel) protocols are you familiar with?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+VPN Protocols (Security/Remote Access):
   - IPsec (Internet Protocol Security)
   - SSL/TLS VPN (Used by OpenVPN and others)
   - L2TP (Layer 2 Tunneling Protocol)
 
-- Network Virtualization (Data Centers/Cloud):
+Network Virtualization (Data Centers/Cloud):
   - VXLAN (Virtual eXtensible Local Area Network)
   - GRE (Generic Routing Encapsulation)
 
-- MPLS VPNs:
+MPLS VPNs:
   - Used in Service Provider networks for creating BGP-based VPNs
- 
- **_53.What is GRE? How does it work?_**
 
- - GRE, or Generic Routing Encapsulation, is a tunneling protocol that encapsulates one network layer protocol (the payload, like IPv6 or a private IP) inside the packets of another protocol (the delivery protocol, usually IPv4). It creates a virtual point-to-point link between two endpoints over an existing network, often the public internet, allowing non-IP protocols, or IP traffic from discontinuous private networks, to be routed transparently.
+</details>
 
- - The process works by the tunnel's source router taking the original packet and adding a GRE header (which identifies the payload protocol) and then an outer IP header (the delivery header) with the tunnel endpoints' public IP addresses. This new packet is routed across the transit network to the tunnel's destination router. The destination router removes the outer IP and GRE headers (de-encapsulation) and forwards the original, inner packet to its final private destination.
+<details>
+<summary><b><i>53.What is GRE? How does it work?</i></b></summary>
 
-**_54.What is VXLAN? How does it work?_**
+$\color{green}{\text{Answer}}$
 
-- VXLAN (Virtual eXtensible Local Area Network) is a network virtualization technology designed to solve the scalability limits of VLANs in modern data centers and cloud environments. It creates a Layer 2 overlay network that can span a physical Layer 3 (IP) infrastructure (the underlay). Its primary benefit is providing massive network segmentation, supporting up to 16 million unique network segments using a 24-bit identifier called the VNI (VXLAN Network Identifier), far exceeding the 4,094 limit of traditional VLANs.
+GRE, or Generic Routing Encapsulation, is a tunneling protocol that encapsulates one network layer protocol (the payload, like IPv6 or a private IP) inside the packets of another protocol (the delivery protocol, usually IPv4). It creates a virtual point-to-point link between two endpoints over an existing network, often the public internet, allowing non-IP protocols, or IP traffic from discontinuous private networks, to be routed transparently.
 
-- VXLAN works by encapsulating the original Layer 2 Ethernet frame (the inner packet) into a UDP packet (the outer packet) for transport over the IP network. This process happens at a device called a VTEP (VXLAN Tunnel Endpoint). The destination VTEP receives the UDP packet, removes the outer headers (de-encapsulation), and forwards the original Ethernet frame to the destination device as if they were on the same local Layer 2 network, regardless of the underlying Layer 3 path.
+The process works by the tunnel's source router taking the original packet and adding a GRE header (which identifies the payload protocol) and then an outer IP header (the delivery header) with the tunnel endpoints' public IP addresses. This new packet is routed across the transit network to the tunnel's destination router. The destination router removes the outer IP and GRE headers (de-encapsulation) and forwards the original, inner packet to its final private destination.
 
-**_55.What is SNAT?_**
+</details>
 
-- SNAT (Source Network Address Translation) is a process where a network device (like a router or firewall) replaces the private source IP address of an outbound packet with a public IP address before forwarding it to an external network (like the internet). This allows multiple devices on a private network to share a single public IP address for outgoing connections and is fundamental for enabling private networks to access the public internet.
+<details>
+<summary><b><i>54.What is VXLAN? How does it work?</i></b></summary>
 
-**_56.Explain OSPF._**
+$\color{green}{\text{Answer}}$
 
-- OSPF (Open Shortest Path First) is a routing protocol that can be implemented on various types of routers. In general, OSPF is supported on most modern routers, including those from vendors such as Cisco, Juniper, and Huawei. The protocol is designed to work with IP-based networks, including both IPv4 and IPv6. Also, it uses a hierarchical network design, where routers are grouped into areas, with each area having its own topology map and routing table. This design helps to reduce the amount of routing information that needs to be exchanged between routers and improve network scalability.
+VXLAN (Virtual eXtensible Local Area Network) is a network virtualization technology designed to solve the scalability limits of VLANs in modern data centers and cloud environments. It creates a Layer 2 overlay network that can span a physical Layer 3 (IP) infrastructure (the underlay). Its primary benefit is providing massive network segmentation, supporting up to 16 million unique network segments using a 24-bit identifier called the VNI (VXLAN Network Identifier), far exceeding the 4,094 limit of traditional VLANs.
 
-- The OSPF 4 Types of routers are:
+VXLAN works by encapsulating the original Layer 2 Ethernet frame (the inner packet) into a UDP packet (the outer packet) for transport over the IP network. This process happens at a device called a VTEP (VXLAN Tunnel Endpoint). The destination VTEP receives the UDP packet, removes the outer headers (de-encapsulation), and forwards the original Ethernet frame to the destination device as if they were on the same local Layer 2 network, regardless of the underlying Layer 3 path.
+
+</details>
+
+<details>
+<summary><b><i>55.What is SNAT?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+SNAT (Source Network Address Translation) is a process where a network device (like a router or firewall) replaces the private source IP address of an outbound packet with a public IP address before forwarding it to an external network (like the internet). This allows multiple devices on a private network to share a single public IP address for outgoing connections and is fundamental for enabling private networks to access the public internet.
+
+</details>
+
+<details>
+<summary><b><i>56.Explain OSPF.</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+OSPF (Open Shortest Path First) is a routing protocol that can be implemented on various types of routers. In general, OSPF is supported on most modern routers, including those from vendors such as Cisco, Juniper, and Huawei. The protocol is designed to work with IP-based networks, including both IPv4 and IPv6. Also, it uses a hierarchical network design, where routers are grouped into areas, with each area having its own topology map and routing table. This design helps to reduce the amount of routing information that needs to be exchanged between routers and improve network scalability.
+
+The OSPF 4 Types of routers are:
  - Internal Router
  - Area Border Routers
  - Autonomous Systems Boundary Routers
  - Backbone Routers
 
-**_57.What is latency?_**
+</details>
 
-- Latency is the time taken for information to reach its destination from the source.
+<details>
+<summary><b><i>57.What is latency?</i></b></summary>
 
-**_58.What is bandwidth?_**
+$\color{green}{\text{Answer}}$
 
-- Bandwidth is the capacity of a communication channel to measure how much data the latter can handle over a specific time period. More bandwidth would imply more traffic handling and thus more data transfer.
+Latency is the time taken for information to reach its destination from the source.
 
-**_59.What is throughput?_**
+</details>
 
-- Throughput refers to the measurement of the real amount of data transferred over a certain period of time across any transmission channel.
+<details>
+<summary><b><i>58.What is bandwidth?</i></b></summary>
 
-**_60.When performing a search query, what is more important, latency or throughput? And how to ensure that we manage global infrastructure?_**
+$\color{green}{\text{Answer}}$
 
-- Latency. To have good latency, a search query should be forwarded to the closest data center.
+Bandwidth is the capacity of a communication channel to measure how much data the latter can handle over a specific time period. More bandwidth would imply more traffic handling and thus more data transfer.
 
-**_61.When uploading a video, what is more important, latency or throughput? And how to assure that?_**
+</details>
 
-- Throughput. To have good throughput, the upload stream should be routed to an underutilized link.
+<details>
+<summary><b><i>59.What is throughput?</i></b></summary>
 
-**_62.What other considerations (except latency and throughput) are there when forwarding requests?_**
+$\color{green}{\text{Answer}}$
 
-- Keep caches updated (which means the request could be forwarded not to the closest data center)
+Throughput refers to the measurement of the real amount of data transferred over a certain period of time across any transmission channel.
 
-**_63.Explain Spine & Leaf_**
+</details>
 
-- "Spine & Leaf" is a networking topology commonly used in data center environments to connect multiple switches and manage network traffic efficiently. It is also known as "spine-leaf" architecture or "leaf-spine" topology. This design provides high bandwidth, low latency, and scalability, making it ideal for modern data centers handling large volumes of data and traffic.
+<details>
+<summary><b><i>60.When performing a search query, what is more important, latency or throughput? And how to ensure that we manage global infrastructure?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Latency. To have good latency, a search query should be forwarded to the closest data center.
+
+</details>
+
+<details>
+<summary><b><i>61.When uploading a video, what is more important, latency or throughput? And how to assure that?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Throughput. To have good throughput, the upload stream should be routed to an underutilized link.
+
+</details>
+
+<details>
+<summary><b><i>62.What other considerations (except latency and throughput) are there when forwarding requests?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Keep caches updated (which means the request could be forwarded not to the closest data center)
+
+</details>
+
+<details>
+<summary><b><i>63.Explain Spine & Leaf</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+"Spine & Leaf" is a networking topology commonly used in data center environments to connect multiple switches and manage network traffic efficiently. It is also known as "spine-leaf" architecture or "leaf-spine" topology. This design provides high bandwidth, low latency, and scalability, making it ideal for modern data centers handling large volumes of data and traffic.
 Within a Spine & Leaf network there are two main tipology of switches:
 
- - Spine Switches: Spine switches are high-performance switches arranged in a spine layer. These switches act as the core of the network and are typically interconnected with each leaf switch. Each spine switch is connected to all the leaf switches in the data center.
+Spine Switches: Spine switches are high-performance switches arranged in a spine layer. These switches act as the core of the network and are typically interconnected with each leaf switch. Each spine switch is connected to all the leaf switches in the data center.
 
- - Leaf Switches: Leaf switches are connected to end devices like servers, storage arrays, and other networking equipment. Each leaf switch is connected to every spine switch in the data center. This creates a non-blocking, full-mesh connectivity between leaf and spine switches, ensuring any leaf switch can communicate with any other leaf switch with maximum throughput.
+Leaf Switches: Leaf switches are connected to end devices like servers, storage arrays, and other networking equipment. Each leaf switch is connected to every spine switch in the data center. This creates a non-blocking, full-mesh connectivity between leaf and spine switches, ensuring any leaf switch can communicate with any other leaf switch with maximum throughput.
 
-- The Spine & Leaf architecture has become increasingly popular in data centers due to its ability to handle the demands of modern cloud computing, virtualization, and big data applications, providing a scalable, high-performance, and reliable network infrastructure
+The Spine & Leaf architecture has become increasingly popular in data centers due to its ability to handle the demands of modern cloud computing, virtualization, and big data applications, providing a scalable, high-performance, and reliable network infrastructure
 
-**_64.What is Network Congestion? What can cause it?_**
+</details>
 
-- Network congestion occurs when there is too much data to transmit on a network and it doesn't have enough capacity to handle the demand.
+<details>
+<summary><b><i>64.What is Network Congestion? What can cause it?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Network congestion occurs when there is too much data to transmit on a network and it doesn't have enough capacity to handle the demand.
 This can lead to increased latency and packet loss. The causes can be multiple, such as high network usage, large file transfers, malware, hardware issues, or network design problems.
 
-- To prevent network congestion, it's important to monitor your network usage and implement strategies to limit or manage the demand.
+To prevent network congestion, it's important to monitor your network usage and implement strategies to limit or manage the demand.
 
-**_65.What can you tell me about the UDP packet format? What about the TCP packet format? How is it different?_**
+</details>
 
-- The UDP (User Datagram Protocol) packet format is extremely simple, consisting of a fixed 8-byte header with only four fields: Source Port, Destination Port, Length, and Checksum. This minimal overhead makes UDP fast and efficient, as it is connectionless and offers no guarantees on delivery or order.
+<details>
+<summary><b><i>65.What can you tell me about the UDP packet format? What about the TCP packet format? How is it different?</i></b></summary>
 
-- The TCP (Transmission Control Protocol) packet format, or segment, is significantly more complex, with a header that is a minimum of 20 bytes and can be up to 60 bytes. It includes all the UDP fields plus crucial extra fields like Sequence Number, Acknowledgment Number, Control Flags (like SYN, ACK, FIN), Window Size for flow control, and a Data Offset field to specify the header length.
+$\color{green}{\text{Answer}}$
 
-- The difference in size and fields is because TCP is a connection-oriented protocol that must manage reliability, ordering, and flow control.
+The UDP (User Datagram Protocol) packet format is extremely simple, consisting of a fixed 8-byte header with only four fields: Source Port, Destination Port, Length, and Checksum. This minimal overhead makes UDP fast and efficient, as it is connectionless and offers no guarantees on delivery or order.
 
-**_66.What is the exponential backoff algorithm? Where is it used?_**
+The TCP (Transmission Control Protocol) packet format, or segment, is significantly more complex, with a header that is a minimum of 20 bytes and can be up to 60 bytes. It includes all the UDP fields plus crucial extra fields like Sequence Number, Acknowledgment Number, Control Flags (like SYN, ACK, FIN), Window Size for flow control, and a Data Offset field to specify the header length.
 
-- The Exponential Backoff algorithm is a collision resolution and error handling strategy where a system multiplicatively increases the waiting time between successive retries of a failed operation. When a network failure, collision, or server overload occurs, the device first waits a short delay, and for each subsequent failure, the delay typically doubles (e.g., 1s, 2s, 4s, 8s, etc.). This delay often includes a small randomized component (jitter) to prevent multiple devices from synchronizing and retrying at the exact same moment, which would cause another wave of collisions or overloads.
+The difference in size and fields is because TCP is a connection-oriented protocol that must manage reliability, ordering, and flow control.
 
-- It is widely used in networking and distributed systems to improve resilience and prevent network congestion. Key applications include: Ethernet and Wi-Fi networks (using the Binary Exponential Backoff variant in CSMA/CD and CSMA/CA) to resolve packet collisions; TCP retransmission to handle lost packets; and in client-server APIs (like Google, AWS, and Stripe) to gracefully handle transient errors, rate limiting (`429` status codes), and server overloads (`5xx` status codes) without overwhelming the service.
+</details>
 
-**_67.Using Hamming code, what would be the code word for the following data word 100111010001101?_**
+<details>
+<summary><b><i>66.What is the exponential backoff algorithm? Where is it used?</i></b></summary>
 
-- 00110011110100011101
+$\color{green}{\text{Answer}}$
 
-**_68.Give examples of protocols found in the application layer_**
+The Exponential Backoff algorithm is a collision resolution and error handling strategy where a system multiplicatively increases the waiting time between successive retries of a failed operation. When a network failure, collision, or server overload occurs, the device first waits a short delay, and for each subsequent failure, the delay typically doubles (e.g., 1s, 2s, 4s, 8s, etc.). This delay often includes a small randomized component (jitter) to prevent multiple devices from synchronizing and retrying at the exact same moment, which would cause another wave of collisions or overloads.
 
-- Hypertext Transfer Protocol (HTTP) - used for the webpages on the internet
+It is widely used in networking and distributed systems to improve resilience and prevent network congestion. Key applications include: Ethernet and Wi-Fi networks (using the Binary Exponential Backoff variant in CSMA/CD and CSMA/CA) to resolve packet collisions; TCP retransmission to handle lost packets; and in client-server APIs (like Google, AWS, and Stripe) to gracefully handle transient errors, rate limiting (`429` status codes), and server overloads (`5xx` status codes) without overwhelming the service.
 
-- Simple Mail Transfer Protocol (SMTP) - email transmission
+</details>
 
-- Telecommunications Network - (TELNET) - terminal emulation to allow a client access to a telnet server
+<details>
+<summary><b><i>67.Using Hamming code, what would be the code word for the following data word 100111010001101?</i></b></summary>
 
-- File Transfer Protocol (FTP) - facilitates the transfer of files between any two machines
+$\color{green}{\text{Answer}}$
 
-- Domain Name System (DNS) - domain name translation
+00110011110100011101
 
-- Dynamic Host Configuration Protocol (DHCP) - allocates IP addresses, subnet masks, and gateways to hosts
-- Simple Network Management Protocol (SNMP) - gathers data on devices on the network
+</details>
 
-**_69.Give examples of protocols found in the Network Layer_**
+<details>
+<summary><b><i>68.Give examples of protocols found in the application layer</i></b></summary>
 
-- Internet Protocol (IP) - assists in routing packets from one machine to another
+$\color{green}{\text{Answer}}$
 
-- Internet Control Message Protocol (ICMP) - lets one know what is going such as error messages and debugging information
+Hypertext Transfer Protocol (HTTP) - used for the webpages on the internet
 
-**_70.What is HSTS?_**
+Simple Mail Transfer Protocol (SMTP) - email transmission
 
-- HTTP Strict Transport Security is a web server directive that informs user agents and web browsers how to handle its connection through a response header sent at the very beginning and back to the browser. This forces connections over HTTPS encryption, disregarding any script's call to load any resource in that domain over HTTP.
+Telecommunications Network - (TELNET) - terminal emulation to allow a client access to a telnet server
+
+File Transfer Protocol (FTP) - facilitates the transfer of files between any two machines
+
+Domain Name System (DNS) - domain name translation
+
+Dynamic Host Configuration Protocol (DHCP) - allocates IP addresses, subnet masks, and gateways to hosts
+
+Simple Network Management Protocol (SNMP) - gathers data on devices on the network
+
+</details>
+
+<details>
+<summary><b><i>69.Give examples of protocols found in the Network Layer</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+Internet Protocol (IP) - assists in routing packets from one machine to another
+
+Internet Control Message Protocol (ICMP) - lets one know what is going such as error messages and debugging information
+
+</details>
+
+<details>
+<summary><b><i>70.What is HSTS?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+HTTP Strict Transport Security is a web server directive that informs user agents and web browsers how to handle its connection through a response header sent at the very beginning and back to the browser. This forces connections over HTTPS encryption, disregarding any script's call to load any resource in that domain over HTTP.
+
+</details>
 
 ## Misc
 
-**_71.What is the Internet? Is it the same as the World Wide Web?_**
+<details>
+<summary><b><i>71.What is the Internet? Is it the same as the World Wide Web?</i></b></summary>
 
-- The internet refers to a network of networks, transferring huge amounts of data around the globe.
+$\color{green}{\text{Answer}}$
 
-- The World Wide Web is an application running on millions of servers, on top of the internet, accessed through what is known as the web browser
+The internet refers to a network of networks, transferring huge amounts of data around the globe.
 
-**_72.What is the ISP?_**
+The World Wide Web is an application running on millions of servers, on top of the internet, accessed through what is known as the web browser
 
-- ISP (Internet Service Provider) is the local internet company provider.
+</details>
+
+<details>
+<summary><b><i>72.What is the ISP?</i></b></summary>
+
+$\color{green}{\text{Answer}}$
+
+ISP (Internet Service Provider) is the local internet company provider.
+
+</details>
